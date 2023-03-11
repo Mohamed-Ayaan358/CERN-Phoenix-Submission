@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    ...
+</head>
+
+<body>
+    <div id="eventDisplay"></div>
+    <div id="eventDisp"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phoenix-event-display/dist/bundle/phoenix.min.js"></script>
+
+    <script>
+        // Create the event display
+        const eventDisplay = new EventDisplay();
+        const eventDisp = new EventDisplay();
+
+        // Define the configuration
+        const configuration1 = {
+            elementId: 'eventDisplay',
+            eventDataLoader: new PhoenixLoader(), // or some other event data loader
+        };
+        const configuration2 = {
+            elementId: 'eventDisp',
+            eventDataLoader: new PhoenixLoader(), // or some other event data loader
+        };
+
+        // Initialize the event display with the configuration
+        eventDisplay.init(configuration1);
+        eventDisp.init(configuration2);
+
+        // Load detector geometries
+        eventDisplay.loadOBJGeometry('./phoenix-data/ATLAS/geometries/Cube.obj', 'Cube', 0x8c8c8c, false, false);
+
+        eventDisp.loadOBJGeometry('./phoenix-data/ATLAS/geometries/sphere.obj', 'Sphere', 0x8c8c8c, false, false);
+    </script>
+</body>
+
+</html>
